@@ -44,6 +44,5 @@ Replace `path/to/db` with the full path to wherever your database file is saved.
 
 3. Try asking Claude questions like:
    - "Return the abstracts of my 5 most recent bookmarked arxiv papers"
-   - "Summarize all bookmarks from Simon Willison"
-   - "Generate a chart of"
-   - ""
+   - "Look through my twitter bookmarks for bookmarks that contain a link to the blog lesswrong, and summarize the content of each of those blog posts"
+   - "Create a chart of my bookmark frequency over time"

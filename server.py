@@ -9,11 +9,11 @@ server_description = """This is a MCP server used for interacting with a SQLite 
 
 Important Instructions:
 - At the beginning of every new conversation with the user, always call the `get_schema` tool first to understand the database structure
-- Whenever possible, include the full, expanded links to any referenced Tweets/bookmarks if they're ever referenced in a response to the user.
+- Whenever possible, include the full, expanded links to the referenced Tweets/bookmarks when presenting the results to the user.
 """
 
 # Create the MCP server
-mcp = FastMCP("SQLite Explorer", instructions=server_description)
+mcp = FastMCP("Twitter Bookmarks SQLite", instructions=server_description)
 
 
 def get_db_path():
@@ -27,7 +27,7 @@ def get_db_path():
 
 @mcp.tool()
 def get_schema() -> str:
-    """Get the database schema"""
+    """Get the database schema. Make sure to always run this tool first at the beginning of every new conversation with the user to understand the database structure."""
     db_path = get_db_path()
     conn = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
     schema = conn.execute("SELECT sql FROM sqlite_master WHERE type='table'").fetchall()
@@ -36,7 +36,11 @@ def get_schema() -> str:
 
 @mcp.tool()
 def run_query(sql: str) -> str:
-    """Execute read-only SQL queries safely."""
+    """
+    Execute read-only SQL queries safely.
+    When finally presenting the results to the user, you must print out the full text of the tweet. Do not truncate the text.
+    Also include the url of the tweet associated with that result so that the user can conveniently visit the actual tweet in their browser.
+    """
     db_path = get_db_path()
     conn = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
     try:
