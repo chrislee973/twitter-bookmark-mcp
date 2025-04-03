@@ -6,6 +6,14 @@ This is a MCP server for providing Claude and other AI assitants access to your 
 
 It's a companion for my [Twitter Boomark Search](https://www.twitter-bookmark-search.com/) app.
 
+## Available Tools
+
+This MCP server is a fairly simple and thin interface layer over a read-only sqlite datbase. It has the below simple tools
+
+- `get_schema()`: Returns the database schema. This is called at the start of each conversation to understand the database structure.
+- `run_query(sql)`: Executes read-only SQL queries.
+- `search_text(query)`: Performs full-text search on the database's fts index. Returns complete tweet information including text, URLs, user details, and embedded links.
+
 ## Setup
 
 ### Prerequisites
