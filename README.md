@@ -1,6 +1,6 @@
 # Twitter Bookmarks MCP
 
-⚠️ This project is still in early stages of development. Expect rough edges and significant changes. Feel free to open issues or reach out on twitter @626ripes if you encounter any problems.
+⚠️ This project is still very much a work in progress. Expect rough edges and significant changes. Feel free to open issues or reach out on twitter @626ripes if you encounter any problems.
 
 This is a MCP server for providing Claude and other AI assitants access to your Twitter bookmarks in the form of a SQLite database so you can search, analyze, chat with, and generate visualizations of them directly in clients like Claude Desktop.
 
@@ -18,9 +18,7 @@ This MCP server is a fairly simple and thin interface layer over a read-only sql
 
 ### Prerequisites
 
-- Make sure you have the sqlite database file of your bookmarks. First extract your bookmarks by following the steps [here](https://twitter-bookmark-search.com), then use this [colab notebook](https://colab.research.google.com/drive/1t-bA5IjABk2pviR-9uIJMPzbGUPiwZWZ) to convert them into a sqlite file.
-  - Yes, I know this multi-step process is a hassle. I'm actively working on streamlining this process!
-- Python 3.11 or higher
+- Make sure you have the sqlite database file of your bookmarks. To do so, first extract your bookmarks in json format by following the steps [here](https://twitter-bookmark-search.com) and upload them in that same page. Then go to the [claude-plugin](https://twitter-bookmark-search.com/claude-plugin) page to convert them to a sqlite database for you to download to your computer. Take note of the filepath of this saved sqlite file.
 - [uv](https://github.com/astral-sh/uv) package manager
 
 ### Installation
